@@ -1,0 +1,68 @@
+.wrapper{
+    margin: 120px auto; /*! margem*/
+    max-width: 400px; /*! largura máxima*/
+    width: 100%;/*! largura*/
+    background: #fff;
+    border-radius: 5px;/*! arredondamento da borda*/
+    padding: 25px;/*! define a distancia de um conteudo da sua borda*/
+}
+.wrapper header{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.wrapper .inputField{
+    display: flex;/*! layout flexivel*/
+    height: 45px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.inputField input{
+    outline: none;/*! efeitos de contorno contorno*/ 
+    width: 85%;
+    height: 100%;
+    border: 1px solid;
+    font-size: 17px;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+
+.inputField button{
+    width: 60px;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: #8e49e8;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+    opacity: 0.6;
+    pointer-events: none;
+
+}
+
+.inputField button.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.wrapper .todoList{
+    max-height: 250px;
+    overflow: auto;/*! Faz a tratativa de elementos que passam limites de uma div podendo colocar um scroll esconder ou cortar o elemento*/
+}
+
+.todoList li{
+    list-style: none;
+    height: 45px;
+    line-height: 45px;
+    position: relative;
+    background: #f2f2f2;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    padding: 0 15px;
+    cursor: default;
+    overflow: hidden;        
+}
