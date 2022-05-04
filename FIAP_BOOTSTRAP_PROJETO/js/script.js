@@ -51,12 +51,23 @@ function showTasks(){
 
     let newLiTag = '';
     add.classList.remove('active');
-    listArr.array.forEach((element) => { //para cada elemento da lista faca algo
+    listArr.array.forEach((element, index) => { //para cada elemento da lista faca algo
         newLiTag += `
-            <li>${element}<span onclick= "deleteTask()"></span></li>
+            <li>${element}<span onclick= "deleteTask(${index})">apagar</span></li>
         `
     })
     todoList.innerHTML = newLiTag; //estamos adicionando um LI na lista html
     inputBox.value = '';//uma vez adicionada a tarefa deixa o campo em branco
+
+}
+
+//Funcao para deletar uma tarefa especifica
+function deleteTask(){
+    let getLocalStorage = localStorage.getItem('New Todo');
+    listArr = JSON.parse(getLocalStorage);
+    listArr.splice(index,1); //Exclui ou remove um determinado item indexado
+    //depois de remover o item atualize novamente o armazenamento local
+    localStorage.setItem('New Todo',JSON.stringify(listArr));
+    showTasks();
 
 }
