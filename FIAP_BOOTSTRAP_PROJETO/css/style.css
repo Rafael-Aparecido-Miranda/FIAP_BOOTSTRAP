@@ -79,7 +79,7 @@
     transition: 0.3s ease;
 }
 
-.todoList li:hover{
+.todoList li:hover span{
     right: 0;
 
 }
