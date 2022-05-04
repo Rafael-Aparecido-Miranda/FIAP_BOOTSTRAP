@@ -36,24 +36,24 @@ function showTasks(){
     let getLocalStorage = localStorage.getItem('New Todo');
 
     if(getLocalStorage == null){
-        listArr ==[]
+        listArr =[]
     }else{
         listArr = JSON.parse(getLocalStorage);
     }
     const pendingNum = document.querySelector('.pendingNum');
-    pendingNum.textContent = listArr.lenght;
+    pendingNum.textContent = listArr.length;
     
-    if(listArr.lenght>0){
+    if(listArr.length>0){
         deleteAllBtn.classList.add('active');// Ativa a classe active 
     }else{
         deleteAllBtn.classList.remove('active');// Desativa a classe active 
     }
 
     let newLiTag = '';
-    add.classList.remove('active');
-    listArr.array.forEach((element, index) => { //para cada elemento da lista faca algo
+    addBtn.classList.remove('active');
+    listArr.forEach((element, index) => { //para cada elemento da lista faca algo
         newLiTag += `
-            <li>${element}<span onclick= "deleteTask(${index})">apagar</span></li>
+            <li>${element}<span onclick= "deleteTask(${index})"><i class="fa-regular fa-trash-can"></i></span></li>
         `
     })
     todoList.innerHTML = newLiTag; //estamos adicionando um LI na lista html
@@ -62,12 +62,17 @@ function showTasks(){
 }
 
 //Funcao para deletar uma tarefa especifica
-function deleteTask(){
+function deleteTask(index){
     let getLocalStorage = localStorage.getItem('New Todo');
     listArr = JSON.parse(getLocalStorage);
     listArr.splice(index,1); //Exclui ou remove um determinado item indexado
     //depois de remover o item atualize novamente o armazenamento local
     localStorage.setItem('New Todo',JSON.stringify(listArr));
     showTasks();
+}
 
+deleteAllBtn.onclick = _=>{
+    listArr = [];
+    localStorage.setItem('New Todo',JSON.stringify(listArr));
+    showTasks();
 }
