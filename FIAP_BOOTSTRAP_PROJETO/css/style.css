@@ -101,10 +101,10 @@
     border-radius: 5px;
     padding: 6px 10px ;/*! espaçamento interno do conteudo */
     opacity: 0.6;
-    pointer-events: none;
+    pointer-events: none;/*! desativa o evento do botão para quando não tiver nenhuma tarefa na lista */
 }
 
 .footer button.active{/*! :active quando o botão é clicado ativa um evento é uma subclasse do css .active é uma classe active ativada pelo JS */
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: auto;/*! ativa o evento do botão quando tem uma tarefa */
 }
